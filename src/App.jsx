@@ -1,5 +1,11 @@
 import './App.css';
 import React, { useEffect, useState } from 'react'
+import logo from './images/logo.svg'
+import bgTriangle from './images/bg-triangle.svg'
+import iconClose from './images/icon-close.svg'
+import iconRock from './images/icon-rock.svg'
+import iconPaper from './images/icon-paper.svg'
+import iconScissors from './images/icon-scissors.svg'
 
 function App() {
 
@@ -67,9 +73,27 @@ function App() {
   }
 
   return (
-    <div>
-
-    </div>
+    <>
+      <div className="container">
+        <div className='column-one'>
+          <div className="container-header">
+            <div className='header-logo'>
+              <img src={logo} alt="" />
+            </div>
+            <div className='header-score'>
+              <p>SCORE</p>
+              <p>12</p>
+            </div>
+          </div>
+          <div className="container-body">
+            <img className='bg-img' src={bgTriangle} alt="" />
+          </div>
+        </div>
+        <div className='column-2'>
+          <button className='btn'>RULES</button>
+        </div>
+      </div>
+  </>
   );
 }
 
