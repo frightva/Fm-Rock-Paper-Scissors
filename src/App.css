@@ -142,10 +142,16 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: 25%;
+  position: relative;
 }
-
 .bg-img{
   height: 200px;
+}
+
+@media (max-width: 50em) {
+  .bg-img{
+    height: 150px;
+  }
 }
 
 .column-2 {
@@ -164,4 +170,65 @@ body {
 
 .column-2 .btn:hover {
   opacity: .8;
+}
+
+
+/* Move Buttons */
+.move-box {
+  position: absolute;
+  top: -3rem;
+  right: 7rem;
+}
+
+.move-box:nth-child(2) {
+  top: 7rem;
+  right: 12rem;
+}
+.move-box:nth-child(3) {
+  top: -3rem;
+  left: 7rem;
+}
+
+.move-box .move-btn {
+  padding: 2rem;
+  border: none;
+  border-radius: 100%;
+  cursor: pointer;
+  position: relative;
+}
+
+
+.move-box .move-btn img {
+  max-height: 50px;
+  max-width: 50px;
+  object-fit: contain;
+  object-position: center;
+}
+
+
+
+@media (max-width: 50em) {
+  .move-box {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+  }
+  
+  .move-box:nth-child(2) {
+    top: 5rem;
+    right: 6rem;
+  }
+  .move-box:nth-child(3) {
+    top: -3rem;
+    left: 3rem;
+  }
+  
+
+  .move-box .move-btn {
+    padding: 1.5rem;
+  } 
+  .move-box img {
+    max-height: 25px;
+    max-width: 25px;
+  }
 }

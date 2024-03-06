@@ -87,6 +87,21 @@ function App() {
           </div>
           <div className="container-body">
             <img className='bg-img' src={bgTriangle} alt="" />
+            <div className='move-box'>
+              <button className='move-btn'>
+                <img src={iconRock} alt="" />
+              </button>
+            </div>
+            <div className='move-box'>
+              <button className='move-btn'>
+                <img src={iconPaper} alt="" />
+              </button>
+            </div>
+            <div className='move-box'>
+              <button className='move-btn'>
+                <img src={iconScissors} alt="" />
+              </button>
+            </div>
           </div>
         </div>
         <div className='column-2'>
