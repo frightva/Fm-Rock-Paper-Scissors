@@ -91,9 +91,18 @@ body {
 
 /* Component Classes */
 
+@media (min-width: 50em) {
+  .container{
+    display: flex;
+    min-height: 100dvh;
+    background-color: transparent;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
+
 .container{
   display: flex;
-  min-height: 100vh;
   background-color: transparent;
   justify-content: space-between;
   flex-direction: column;
@@ -111,11 +120,17 @@ body {
   border: 2px solid var(--clr-neutral-700);
   border-radius: 10px;
   padding: 1rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .header-logo {
   width: 120px;
+}
+
+@media (max-width: 50em) {
+  .header-logo {
+    width: 100px;
+  }
 }
 
 .header-score {
@@ -137,11 +152,12 @@ body {
   font-size: 2.8rem;
 }
 
+
 .container-body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 15%;
+  margin-top: 20%;
   position: relative;
 }
 
@@ -152,7 +168,7 @@ body {
 }
 
 .bg-img{
-  height: 200px;
+  height: 230px;
   position: absolute;
   z-index: -1;
 }
@@ -182,24 +198,44 @@ body {
 
 
 .move-container {
-  width: 280px;
+  width: 350px;
   height: 280px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
+@media (max-width: 50em) {
+  .move-container{
+    width: 300px;
+  }
+}
+
 .flex-space{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: inherit;
+  height: 5rem;
 }
 
 .flex-center  {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 5rem;
 }
+
+/* Styles Picked Move */
+.move-box h1 {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  text-align: center;
+  color: white;
+  font-weight: var(--fw-semi-bold);
+  letter-spacing: .1rem;
+  cursor: default;
+} 
 
 .move-btn {
   padding: 2rem;
@@ -212,9 +248,17 @@ body {
 
 .move-btn img {
   object-fit: contain;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 }
+
+@media (max-width: 50em) {
+  .move-btn img {
+    width: 40px;
+    height: 40px;
+  }
+}
+
 
 .btn1::after,
 .btn2::after,
@@ -234,7 +278,200 @@ body {
 .btn2::after {
   background: radial-gradient(var(--clr-primary-scissors));
 }
-
 .btn3::after {
   background: radial-gradient(var(--clr-primary-rock));
 }
+
+/* Moves Classes Animations
+
+/* Img Sizing */
+/* @keyframes animatePaperImg {
+  to {
+    width: 110px;
+    height: 110px;
+  }
+} */
+
+/* @media (max-width: 50em) {
+  @keyframes animatePaperImg {
+    to {
+      width: 30px;
+      height: 30px;
+    }
+  }  
+}
+
+.animate-move button img{
+  animation: animatePaperImg 1s ease;
+  animation-fill-mode: forwards;
+} */
+
+
+/* Paper Move */
+/* @keyframes animatePaper {
+  from {
+    transform: translate(0rem, -0rem);
+ 
+  }
+  to {
+    transform: translate(-5rem, 5rem);
+  }
+} */
+
+/* 
+
+@media (max-width: 50em) {
+  @keyframes animatePaper {
+    from {
+      transform: translate(2rem, -0rem);
+   
+    }
+    to {
+      transform: translate(2rem, -1rem);
+    }
+  }
+}
+
+
+.animate-move:nth-child(1){
+  animation: animatePaper 1s ease;
+  animation-fill-mode: forwards;
+} */
+
+/* Scissors Move */
+/* 
+@keyframes animateScissors {
+  from {
+    transform: translate(0rem, -0rem);
+ 
+  }
+  
+  to {
+    transform: translate(-16rem, 5rem);
+  }
+} */
+
+/* @media screen {
+  @keyframes animateScissors {
+    from {
+      transform: translate(0rem, -0rem);
+   
+    }
+    
+    to {
+      transform: translate(-14rem, -1rem);
+    }
+  }
+}
+
+.animate-move:nth-child(2) {
+  animation: animateScissors 1s ease;
+  animation-fill-mode: forwards;
+} */
+
+/* Rock Move */
+
+/* @keyframes animateRock {
+  from {
+    transform: translate(0rem, -0rem);
+ 
+  }
+  
+  to {
+    transform: translate(-10.5rem, -7.5rem);
+  }
+}
+
+@media screen {
+  
+  @keyframes animateRock {
+    from {
+      transform: translate(0rem, -0rem);
+   
+    }
+    
+    to {
+      transform: translate(-6rem, -13.5rem);
+    }
+  }
+}
+
+.flex-center .animate-move {
+  animation: animateRock 1s ease;
+  animation-fill-mode: forwards;
+}
+
+
+  */
+
+
+/* Results Classes Animations */
+
+.shadow-box {
+  width: 180px;
+  height: 180px;
+  border-radius: 100%;
+  background-color: rgba(0, 0, 0, .2);
+}
+
+@keyframes incriseImgSize {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+
+  to {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+.show-results img{
+  width: 0px;
+  height: 0px;
+  animation: incriseImgSize 1s ease;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes incriseImgSize-house-img {
+  from {
+    width: 0px;
+    height: 0px;
+  }
+
+  to {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+.show-results-house img{
+  width: 0px;
+  height: 0px;
+  animation: incriseImgSize-house-img 1s ease .4s;
+  animation-fill-mode: forwards;
+}
+
+.show-results-house{
+  
+}
+
+
+
+@keyframes incriseContainerWidht {
+  from {
+    transform: translateX(0px);
+  }
+  
+  to {
+
+  }
+}
+.result-container {
+  width: 500px;
+  height: 280px;
+
+}
+
+
