@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import logo from './images/logo.svg'
 import bgTriangle from './images/bg-triangle.svg'
 import iconClose from './images/icon-close.svg'
-import iconRock from './images/icon-rock.svg'
-import iconPaper from './images/icon-paper.svg'
-import iconScissors from './images/icon-scissors.svg'
+import iconRock from './images/icon-Rock.svg'
+import iconPaper from './images/icon-Paper.svg'
+import iconScissors from './images/icon-Scissors.svg'
 import Moves from './components/Moves';
 import Result from './components/Result';
 
@@ -16,16 +16,15 @@ function App() {
   const [houseMove, setHouseMove ]= useState('')
   const [resultOutput, setResultOutput] = useState('')
   const [scoreOutput, setScoreOutput] = useState(0)
-  
+  const [gameIsActive, setGameIsActive] = useState(true)
   
   let computerMove = '';
   let result = '';
 
-  
+
   
   const handleGame = (playerMove) => {
     const randomNumber = Math.random();
-
     if(randomNumber >= 0 && randomNumber < 1/3) {
       computerMove = "Rock"
     } else if(randomNumber >=1/3 && randomNumber < 2/3){
@@ -71,8 +70,12 @@ function App() {
 
     setPMove(playerMove)
     setHouseMove(computerMove)
-    setResultOutput(result)   
+    setResultOutput(result)
+    setTimeout(() => {
+      setGameIsActive(false);
+    }, 2000);
   }
+  
 
   return (
     <>
@@ -88,6 +91,7 @@ function App() {
             </div>
           </div>
           <div className="container-body">
+            {gameIsActive ?
             <Moves
               handleGame={handleGame}
               pMove={pMove}
@@ -95,10 +99,14 @@ function App() {
               iconRock={iconRock}
               iconPaper={iconPaper}
               iconScissors={iconScissors} />
-            {/* <Result
+              :
+             <Result
+              pMove={pMove}
+              houseMove={houseMove}
               iconRock={iconRock}
               iconPaper={iconPaper}
-              iconScissors={iconScissors} /> */}
+              iconScissors={iconScissors} /> 
+            }    
           </div>
         </div>
         <div className='column-2'>

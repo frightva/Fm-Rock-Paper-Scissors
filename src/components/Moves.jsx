@@ -7,7 +7,7 @@ function Moves({ handleGame,pMove,bgTriangle, iconPaper, iconRock, iconScissors 
   const [scissors, setScissors] = useState(true)
   const [bg, setBg] = useState(true)
 
-  const isClicked = (move) => {
+  const isClicked = (move, e) => {
     handleGame(move)
     if(move === 'Paper') {
       setPaper(true)
@@ -46,7 +46,7 @@ function Moves({ handleGame,pMove,bgTriangle, iconPaper, iconRock, iconScissors 
       </div>
       <div className="flex-center">
         <div className={pMove === 'Rock' ? 'move-box animate-move' : 'move-box'} style={rock ? {'opacity': '1'} : {'opacity': '0', 'transition': 'opacity 1s'}}>
-          <button onClick={() => isClicked('Rock')} className='move-btn btn3'>
+          <button onClick={(e) => isClicked('Rock', e)} className='move-btn btn3'>
             <img src={iconRock} alt="" />
           </button>
         </div>

@@ -1,22 +1,32 @@
 import React from 'react'
+import MovePaper from './MovePaper'
+import MoveRock from './MoveRock'
+import MoveScissors from './MoveScissors'
 
-function Result({ iconPaper, iconRock, iconScissors }) {
+function Result({ iconPaper, iconRock, iconScissors, pMove, houseMove }) {
+  
+  console.log(pMove)
+  console.log(houseMove)
+
   return (
     <>
       <div className="move-container result-container">
         <div className="flex-space">
           <div className='move-box'>
             <h1>YOU PICKED</h1>
-            <button className='move-btn btn1 show-results'>
-              <img src={iconPaper} alt="" />
-            </button>
+            {pMove === 'Paper' && <MovePaper />}
+            {pMove === 'Rock' && <MoveRock />}
+            {pMove === 'Scissors' && <MoveScissors />}
+
           </div>
           <div className='move-box'>
             <h1>THE HOUSE PICKED</h1>
             <div className='shadow-box'>
-              <button className='move-btn btn2 show-results-house'>
-                <img src={iconScissors} alt="" />
-              </button>
+              <div className="btn-wrapper">
+              {houseMove === 'Paper' && <MovePaper />}
+              {houseMove === 'Rock' && <MoveRock />}
+              {houseMove === 'Scissors' && <MoveScissors />}
+              </div>
             </div>
           </div>
         </div>
