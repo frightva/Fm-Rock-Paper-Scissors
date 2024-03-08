@@ -89,6 +89,8 @@ function App() {
           </div>
           <div className="container-body">
             <Moves
+              handleGame={handleGame}
+              pMove={pMove}
               bgTriangle={bgTriangle}
               iconRock={iconRock}
               iconPaper={iconPaper}
