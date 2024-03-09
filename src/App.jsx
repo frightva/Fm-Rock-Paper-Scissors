@@ -8,6 +8,7 @@ import iconPaper from './images/icon-Paper.svg'
 import iconScissors from './images/icon-Scissors.svg'
 import Moves from './components/Moves';
 import Result from './components/Result';
+import Rules from './images/image-rules.svg'
 
 function App() {
 
@@ -17,12 +18,12 @@ function App() {
   const [resultOutput, setResultOutput] = useState('')
   const [scoreOutput, setScoreOutput] = useState(0)
   const [gameIsActive, setGameIsActive] = useState(true)
+  const [rules, setRules] = useState(false)
   
   let computerMove = '';
   let result = '';
 
 
-  
   const handleGame = (playerMove) => {
     const randomNumber = Math.random();
     if(randomNumber >= 0 && randomNumber < 1/3) {
@@ -38,34 +39,38 @@ function App() {
 
     if(playerMove === 'Rock') {
       if(computerMove === 'Rock') {
-        result = "Tie."
+        result = "DRAW"
       } else if(computerMove === 'Paper') {
-        result = "You Lose."
+        result = "YOU LOSE"
       } else if(computerMove === 'Scissors') {
-        result = "You Win."
+        result = "YOU WIN"
       }
     } else if(playerMove === 'Paper') {
       if(computerMove === 'Rock') {
-        result = "You Win."
+        result = "YOU WIN"
       } else if(computerMove === 'Paper') {
-        result = "Tie."
+        result = "DRAW"
       } else if(computerMove === 'Scissors') {
-        result = "You Lose."
+        result = "YOU LOSE"
       }
     } else if(playerMove === 'Scissors') {
       if(computerMove === 'Rock') {
-        result = "You Lose."
+        result = "YOU LOSE"
       } else if(computerMove === 'Paper') {
-        result = "You Win."
+        result = "YOU WIN"
       } else if(computerMove === 'Scissors') {
-        result = "Tie."
+        result = "DRAW"
       }
     }
 
-    if(result === "You Win.") {
-      setScoreOutput(scoreOutput + 1)
-    } else if(result === "You Lose.") {
-      setScoreOutput(scoreOutput - 1)
+    if(result === "YOU WIN") {
+      setTimeout(() => {
+        setScoreOutput(scoreOutput + 1)
+      }, 5500)
+    } else if(result === "YOU LOSE") {
+      setTimeout(() => {
+        setScoreOutput(scoreOutput - 1)
+      }, 5500)
     }
 
     setPMove(playerMove)
@@ -87,7 +92,7 @@ function App() {
             </div>
             <div className='header-score'>
               <p>SCORE</p>
-              <p>12</p>
+              <p>{scoreOutput}</p>
             </div>
           </div>
           <div className="container-body">
@@ -102,7 +107,10 @@ function App() {
               :
              <Result
               pMove={pMove}
+              setPMove={setPMove}
               houseMove={houseMove}
+              resultOutput={resultOutput}
+              setGameIsActive={setGameIsActive}
               iconRock={iconRock}
               iconPaper={iconPaper}
               iconScissors={iconScissors} /> 
@@ -110,7 +118,19 @@ function App() {
           </div>
         </div>
         <div className='column-2'>
-          <button className='btn'>RULES</button>
+          {rules &&
+          <div className='rules-container'>
+            <div className="rules-box">
+              <div className='flex-space'>
+                <h1>RULES</h1>
+                <button className='close-btn' onClick={() => setRules(false)}>
+                  <img src={iconClose} alt="" />
+                </button>
+              </div>
+              <img src={Rules} alt="" />
+            </div>
+          </div>}
+          <button className='btn' disabled={rules} onClick={() => setRules(true)}>RULES</button>
         </div>
       </div>
   </>
