@@ -120,7 +120,7 @@ function App() {
         <div className='column-2'>
           {rules &&
           <div className='rules-container'>
-            <div className="rules-box">
+            <div className="rules-box" datatype={rules ? 'active' : 'closed'}>
               <div className='flex-space'>
                 <h1>RULES</h1>
                 <button className='close-btn' onClick={() => setRules(false)}>
