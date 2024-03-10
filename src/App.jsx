@@ -19,10 +19,25 @@ function App() {
   const [scoreOutput, setScoreOutput] = useState(0)
   const [gameIsActive, setGameIsActive] = useState(true)
   const [rules, setRules] = useState(false)
+  const [isMenuClosed, setIsMenuClosed] = useState(false)
   
   let computerMove = '';
   let result = '';
 
+
+  const handleCloseMenuAnimation = () => {
+    
+    if(isMenuClosed) {
+      setIsMenuClosed(false)
+      setTimeout(() => {
+        setRules(false)
+      }, 600);
+    } else {
+      setIsMenuClosed(true)
+      setRules(true)
+    }
+
+  }
 
   const handleGame = (playerMove) => {
     const randomNumber = Math.random();
@@ -120,17 +135,17 @@ function App() {
         <div className='column-2'>
           {rules &&
           <div className='rules-container'>
-            <div className="rules-box" datatype={rules ? 'active' : 'closed'}>
+            <div className="rules-box" datatype={isMenuClosed ? 'active' : 'closed'}>
               <div className='flex-space'>
                 <h1>RULES</h1>
-                <button className='close-btn' onClick={() => setRules(false)}>
+                <button className='close-btn' onClick={() => handleCloseMenuAnimation()}>
                   <img src={iconClose} alt="" />
                 </button>
               </div>
               <img src={Rules} alt="" />
             </div>
           </div>}
-          <button className='btn' disabled={rules} onClick={() => setRules(true)}>RULES</button>
+          <button className='btn' disabled={rules} onClick={() => handleCloseMenuAnimation()}>RULES</button>
         </div>
       </div>
   </>
