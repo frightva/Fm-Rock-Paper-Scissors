@@ -1,5 +1,5 @@
-import React from 'react'
-import moveRock from '../../src/images/icon-Rock.svg'
+import React from 'react';
+import moveRock from '../../src/images/icon-Rock.svg';
 
 function MoveRock() {
   return (

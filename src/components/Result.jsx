@@ -1,7 +1,7 @@
-import React from 'react'
-import MovePaper from './MovePaper'
-import MoveRock from './MoveRock'
-import MoveScissors from './MoveScissors'
+import React from 'react';
+import MovePaper from './MovePaper';
+import MoveRock from './MoveRock';
+import MoveScissors from './MoveScissors';
 
 function Result({ pMove, setPMove, houseMove, setGameIsActive, resultOutput }) {
 
