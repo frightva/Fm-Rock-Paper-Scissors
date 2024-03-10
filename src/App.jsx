@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import logo from './images/logo.svg'
 import bgTriangle from './images/bg-triangle.svg'
 import iconClose from './images/icon-close.svg'
