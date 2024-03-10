@@ -1,5 +1,5 @@
 import React from 'react'
-import movePaper from '../images/icon-Paper.svg'
+import movePaper from '../../src/images/icon-Paper.svg'
 
 function MovePaper() {
   return (

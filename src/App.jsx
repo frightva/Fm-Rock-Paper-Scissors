@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import logo from './images/logo.svg'
 import bgTriangle from './images/bg-triangle.svg'
 import iconClose from './images/icon-close.svg'
-import iconRock from './images/icon-Rock.svg'
-import iconPaper from './images/icon-Paper.svg'
-import iconScissors from './images/icon-Scissors.svg'
+import iconRock from '../src/images/icon-Rock.svg'
+import iconPaper from '../src/images/icon-Paper.svg'
+import iconScissors from '../src/images/icon-Scissors.svg'
 import Moves from './components/Moves';
 import Result from './components/Result';
 import Rules from './images/image-rules.svg'

@@ -1,5 +1,5 @@
 import React from 'react'
-import moveScissors from '../images/icon-Scissors.svg'
+import moveScissors from '../../src/images/icon-Scissors.svg'
 
 function MoveScissors() {
   return (
