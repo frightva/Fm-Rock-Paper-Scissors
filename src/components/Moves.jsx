@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Moves({ handleGame,pMove,bgTriangle, iconPaper, iconRock, iconScissors }) {
+function Moves({ handleGame, pMove, bgTriangle, iconPaper, iconRock, iconScissors }) {
 
   const [paper, setPaper] = useState(true)
   const [rock, setRock] = useState(true)
